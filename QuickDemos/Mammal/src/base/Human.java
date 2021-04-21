@@ -3,8 +3,8 @@ package base;
 import java.time.LocalDate;
 
 public class Human extends Mammal implements Biped {
-    String SSN;
-    String lastName;
+    private String SSN;
+    private String lastName;
 
     public Human (String name, LocalDate DOB, boolean hasLegs,  String SSN, String lastName) {
         // I'm calling the constructor in Mammal
@@ -18,10 +18,14 @@ public class Human extends Mammal implements Biped {
     @Override
     public void getInfo() {
         super.getInfo();
-        System.out.println(this.SSN);
+        System.out.println(this.getSSN());
         System.out.println(this.lastName);
         System.out.println(this.isBiped);
         System.out.println(this.numOfLegs);
+    }
+
+    private String getSSN(){
+        return "XXX-XX-1234";
     }
 
     @Override

@@ -1,7 +1,9 @@
 package base;
 
 public interface Biped {
-    Integer numOfLegs = 2;
-    boolean isBiped = true;
+    final Integer numOfLegs = 2;
+    final boolean isBiped = true;
+
+
 
 }
