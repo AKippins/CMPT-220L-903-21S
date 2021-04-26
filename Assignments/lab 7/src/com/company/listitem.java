@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class listitem {
+
     private int name;
     private int age;
 
@@ -29,10 +30,10 @@ public class listitem {
 
     public static void order(List <listitem> List){
         for (int j = 0; j < List.size(); j++) {
-        listitem item = (listitem) List.get(j);
-        System.out.println(item.getName());
-        System.out.println(item.getAge());
-    }
+            listitem item = (listitem) List.get(j);
+            System.out.println(item.getName());
+            System.out.println(item.getAge());
+        }
     }
 
 
@@ -46,6 +47,8 @@ public class listitem {
 
         List.add(new listitem(numbers, 19));
     }
+
+
 
 
 }
