@@ -3,7 +3,7 @@ package base;
 import java.time.LocalDate;
 import java.time.Period;
 
-public class Mammal {
+public abstract class Mammal {
     boolean isMammal;
     String name;
     Integer age;
@@ -27,7 +27,8 @@ public class Mammal {
         System.out.println(this.DOB);
     }
 
-    public void speak() {
-        System.out.println("Hello, I am a mammal");
-    }
+    public abstract void speak();
+//    {
+//        System.out.println("Hello, I am a mammal");
+//    }
 }

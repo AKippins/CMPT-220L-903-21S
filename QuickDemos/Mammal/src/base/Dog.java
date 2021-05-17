@@ -12,4 +12,8 @@ public class Dog extends Mammal {
     public void speak() {
         System.out.println("Hello, I am Doge!");
     }
+
+    public static void pee(){
+        System.out.println("I may have peed on the carpet... Sorry...");
+    }
 }
