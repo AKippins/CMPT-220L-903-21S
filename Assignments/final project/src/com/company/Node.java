@@ -13,7 +13,7 @@ public class Node{
 
     public Node(int data) {
         //reference to each child
-        //assine data to new node, set left and right null
+        //assin data to new node, set left and right null
         this.data = data;
         this.right = null;
         this.left = null;

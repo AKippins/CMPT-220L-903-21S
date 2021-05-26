@@ -70,45 +70,47 @@ public class BST {
     }
 
     //public method that starts  from the root
+    //finding elements
     public boolean containsNode(int data) {
         return containsNodeRecursive(root, data);
 
     }
 
 
-    // deleting an element, find the node to delete in a similar way as before
+    public int findHeightOfBst(Node node){
+        if (node==null){
+            return 0;
+        }
+        else{
+           int left_height = findHeightOfBst(node.getLeft());
+           int right_height = findHeightOfBst(node.getRight());
+           return Math.max(left_height,right_height)+1;
+        }
+    }
 
-   /* private Node deleteRecursive(Node current, int data){
-        if (current == null){
+
+    public void delete(int data) {
+        root = deleteRecursive(root, data);
+    }
+
+
+    // deleting a specific node
+    private Node deleteRecursive(Node current, int data) {
+        if (current == null) {
             return null;
         }
 
-        if (data== current.getData()){
-            //node to delete found
-            // code to delete the node will go here
+        if (data == current.getData()) {
+            return null;
         }
 
-        if (data < current.getData()){
+        if (data < current.getData()) {
             current.setLeft(deleteRecursive(current.getLeft(), data));
-            return current;
         }
         current.setRight(deleteRecursive(current.getRight(), data));
         return current;
 
-        // implemet when node is a leaf node
-        if (current.getLeft() == null && current.getRight() == null){
-            return null;
-        }
-
-        // continue the case when node has one child
-
-        if (current.getRight() == null) {
-            return current.getLeft();
-        }
-
-        if (current.getLeft() == null) {
-            return current.getRight();
-        }*/
+    }
 
     //handle case when node ahs two children
 
@@ -146,12 +148,40 @@ public class BST {
 
 
 
-    public void delete(int data) {
-    //    root = deleteRecursive(root, data);
+    // depth first search, in order traversal, pre order traversal and post order traversal
+
+    public void DFS(Node node) {
+        if (node == null) {
+            return;
+        }
+
+        Stack<Node> stack = new Stack<Node>();
+        stack.add(node);
+
+        while (!stack.isEmpty()) {
+
+            Node n = stack.pop();
+
+            if (n.getLeft() != null) {
+                stack.add(n.getLeft());
+            }
+
+            if (n.getRight() != null) {
+                stack.add(n.getRight());
+            }
+
+            System.out.print(" " + n.getData());
+
+
+        }
+
+
     }
 
 
-    // depth first search, in order traversal, pre order traversal and post order traversal
+
+
+
 
     //in order traversal visits left sub tree first, then the root node, then the right sub tree
     public void traverseInOrder(Node node) {
@@ -183,7 +213,7 @@ public class BST {
     }
 
 
-    // post order traversal visits left sub tree, then right,
+    //post order traversal visits left sub tree, then right,
     public void traversePostOrder(Node node) {
         if (node== root){
             postorder = new ArrayList<Node>();
@@ -198,27 +228,29 @@ public class BST {
     }
 
 
+
+
     // breath first search. i used a queue to hold the nodes form each level in order
-    public void traverseLevelOrder() {
-        if (root == null) {
+    public void BFS(Node node) {
+        if (node == null) {
             return;
         }
 
         Queue<Node> nodes = new LinkedList<>();
-        nodes.add(root);
+        nodes.add(node);
 
         while (!nodes.isEmpty()) {
 
-            Node node = nodes.remove();
+            Node n = nodes.remove();
 
-            System.out.print(" " + node.getData());
+            System.out.print(" " + n.getData());
 
-            if (node.getLeft() != null) {
-                nodes.add(node.getLeft());
+            if (n.getLeft() != null) {
+                nodes.add(n.getLeft());
             }
 
-            if (node.getRight() != null) {
-                nodes.add(node.getRight());
+            if (n.getRight() != null) {
+                nodes.add(n.getRight());
             }
         }
 
